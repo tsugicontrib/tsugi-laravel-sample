@@ -24,7 +24,7 @@ controller `config.php` but with a different `wwwroot`.
 
 # Adding the Dependency to composer.json
 
-    "tsugi/lib": "dev-master#0af00f701af8a7351369340d81b23771303160d8"
+    "tsugi/lib": "dev-master#60bc5574df95e7bd657c18ecce5baed08680ada5"
 
 And run
 
