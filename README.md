@@ -1,4 +1,4 @@
-# tsugi-laravel-Sample
+# tsugi-laravel-sample
 
 This talks about host to use Tsugi in Laravel.  It is early days for this library / approach.
 I have done this without using "Middleware" - which reveals the nature of things to the app developer,
