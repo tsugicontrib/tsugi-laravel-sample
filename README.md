@@ -77,11 +77,17 @@ if you just want to use it.
 
 # Run a Test
 
+Start the server
+
+    php artisan serve
+    
+Navigate to http://localhost:8000/lti - you should see an error message since it is not launched using LTI.
+
 Go to https://online.dr-chuck.com/sakai-api-test/lms.php and enter
 
     http://localhost:8000/lti
 
-As the URL, and press "Launch".  If all goes well, Tsugi should process the POST
+As the URL, and press "Launch".  If all goes well, your Tsugi Laravel application should process the POST
 and do the rediect and dump out the Launch data.
 
 # Library Code for Tsugi Laravel
