@@ -14,7 +14,6 @@ class ltiSample extends Controller
 
         $launch = LTIX::laravelSetup($request, LTIX::ALL);
         if ( $launch->redirect_url ) return redirect($launch->redirect_url);
-        if ( $launch->send_403 ) return response($launch->error_message, 403);
 
         ob_start();
         echo("<pre>\n");
