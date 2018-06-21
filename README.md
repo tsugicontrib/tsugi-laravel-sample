@@ -1,7 +1,7 @@
 # tsugi-laravel-sample
 
-Note: This is not a Laravel Application - it just described how to make
-a Laravel application and include Tsugi in it.
+Note: This is not a Laravel Application - it just describes how to make
+a Laravel application and include Tsugi.
 
 It is early days for this library / approach.
 I have done this without using "Middleware" - which reveals the
