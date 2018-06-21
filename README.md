@@ -1,7 +1,11 @@
 # tsugi-laravel-sample
 
-This talks about host to use Tsugi in Laravel.  It is early days for this library / approach.
-I have done this without using "Middleware" - which reveals the nature of things to the app developer,
+Note: This is not a Laravel Application - it just described how to make
+a Laravel application and include Tsugi in it.
+
+It is early days for this library / approach.
+I have done this without using "Middleware" - which reveals the
+nature of things to the app developer,
 perhaps in too much detail for convienient use.
 
 Those with more Laravel Expertise are welcome to add to this idea.
@@ -10,23 +14,58 @@ Those with more Laravel Expertise are welcome to add to this idea.
 
 You will need to install the Tsugi Management Console from https://github.com/tsugiproject/tsugi
 and configure it and create all the database tables.  This can run on a completely different
-web environment than your Laraval code - but it does need access to the same database as 
+web environment than your Laravel code - but it does need access to the same database as 
 your Laravel instance to set up keys, etc.  By default there will be a 12345 / secret key 
 inserted and usable if you are in DEVELOPER mode.
 
-# Configuring Tsugi in Your Laravel App
+# Install Laravel
 
-Make a copy of `config.php` from Tsugi into the top level directory of your Laravel 
-Application - do not put this in the `app` folder - it needs to find the `vendor` folder.
+If you have not already done so install Laravel:
 
-Edit the file to set up the various bits.  Mostly it will be the same as your Tsugi management
+    composer global require "laravel/installer=~1.1"
+
+# Make a laravel application named zippy
+
+If you don't already have an application, create one:
+
+    composer create-project laravel/laravel zippy --prefer-dist
+
+    $ cd zippy
+    $ ls
+    CONTRIBUTING.md bootstrap   phpunit.xml server.php
+    app     composer.json   public      vendor
+    artisan     composer.lock   readme.md
+
+Looks like a fine Laravel application
+
+# Adding Tsugi in Your Laravel App
+
+Make a copy of `config.php` from Tsugi into the top
+level directory of your Laravel Application - do not
+put this in the `zippy/app` folder - it needs to find
+the `vendor` folder.
+
+Edit the file to set up the various bits.  Mostly it will be
+the same as your Tsugi management
 controller `config.php` but with a different `wwwroot`.
 
 # Adding the Dependency to composer.json
 
-    "tsugi/lib": "dev-master#60bc5574df95e7bd657c18ecce5baed08680ada5"
+Look at the latest commit in https://github.com/tsugiproject/tsugi-php/
+Use this commit and add the following line to your `composer.json`.
 
-And run
+    "tsugi/lib": "dev-master#f6c888b0182adbd989fb838baeb6fb0ebb7caceb"
+
+    "type": "project",
+    "require": {
+        "php": ">=7.0.0",
+        "fideloper/proxy": "~3.3",
+        "laravel/framework": "5.5.*",
+        "laravel/tinker": "~1.0",
+        "tsugi/lib": "dev-master#f6c888b0182adbd989fb838baeb6fb0ebb7caceb"
+    },
+
+Then run
 
     composer update
 
@@ -34,8 +73,8 @@ For now, just hang with trunk because you might find and fix bugs as this gets o
 
 # Bypassing CSRF
 
-In order to allow a POST withour CSRF, you need to bypass it in Laravel.Edit
-the `app/Http/Middleware/VerifyCsrfToken.php` file to look siplar to the following:
+In order to allow a POST withour CSRF, you need to bypass it in Laravel.  Edit
+the `app/Http/Middleware/VerifyCsrfToken.php` file to look similar to the following:
 
     <?php
 
@@ -83,7 +122,7 @@ Start the server
     
 Navigate to http://localhost:8000/lti - you should see an error message since it is not launched using LTI.
 
-Go to https://online.dr-chuck.com/sakai-api-test/lms.php and enter
+Go to https://www.tsugi.org/lti-test/lms.php and enter
 
     http://localhost:8000/lti
 
@@ -100,7 +139,7 @@ https://github.com/tsugiproject/tsugi-php/tree/master/src/Laravel
 
 I would think that at some point this might make better send as a filter so the 
 redirect and 403 processing can be done more seamlessly.  But that requires
-more Laraval learning that I have presently.
+more Laravel learning that I have presently.
 
 
 
