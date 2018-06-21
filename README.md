@@ -54,7 +54,7 @@ controller `config.php` but with a different `wwwroot`.
 Look at the latest commit in https://github.com/tsugiproject/tsugi-php/
 Use this commit and add the following line to your `composer.json`.
 
-    "tsugi/lib": "dev-master#f6c888b0182adbd989fb838baeb6fb0ebb7caceb"
+    "tsugi/lib": "dev-master5987314f603257fb19564cc04ec56e3e3412b95b#"
 
     "type": "project",
     "require": {
@@ -62,7 +62,7 @@ Use this commit and add the following line to your `composer.json`.
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "tsugi/lib": "dev-master#f6c888b0182adbd989fb838baeb6fb0ebb7caceb"
+        "tsugi/lib": "dev-master#5987314f603257fb19564cc04ec56e3e3412b95b"
     },
 
 Then run
